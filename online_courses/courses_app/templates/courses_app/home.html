@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yaroslav's Online Courses</title>
+</head>
+<body>
+    <h1>Yaroslav's Online Courses</h1>
+    <p>Welcome to Yaroslav's Online Courses, a website built for teachers and students worldwide to share and participate in online courses for various subjects. You can find everything that could possibly pique your interest here. This website was built by Yaroslav Mokryk.</p> 
+    <h2>Courses</h2>
+    {% for course in dummy_courses %}
+        <h3>{{ course.name }}</h3>
+        {% for user in users %}
+        {% if user.id == course.teacher %}
+            <h4>Teacher: {{ user.firstname }} {{ user.lastname }}</h4>
+        {% endif %}
+        {% endfor %}
+        
+        {% for student_id in course.students %}
+        {% for user in users %}
+        {% if user.id == student_id %}
+            <p>{{ user.firstname }} {{ user.lastname }}</p>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

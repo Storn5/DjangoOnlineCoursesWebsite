@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Application</title>
+</head>
+<body>
+    <h1>Create a new Application</h1>
+    <h4>Name: {{ user.firstname }} {{ user.lastname }}</h4>
+    <form method="POST">
+        {% csrf_token %}
+        Course:<br>
+        <select name="course">
+            {% for course in courses %}
+            <option value={{ course.id }}>{{ course.name }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application View</title>
+</head>
+<body>
+    <h1>Application</h1>
+    {% for course_id in courses %}
+    {% if course_id.id == app.course %}
+    <h4>Course: {{ course_id.name }}</h4>
+    {% endif %}
+    {% endfor %}
+    {% for user in users %}
+    {% if user.id == app.student %}
+    <h4>Student: {{ user.firstname }} {{ user.lastname }}</h4>
+    {% endif %}
+    {% endfor %}
+    <h5>Status: {{ app.status }}</h5>
+    {% if app.status == "placed" %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Approve" name="approve"/>
+        <input type="submit" value="Reject" name="reject"/>
+    </form>
+    {% endif %}
+</body>
+</html>

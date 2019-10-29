@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create User</title>
+</head>
+<body>
+    <h1>Create User</h1>
+    <form method="POST">
+        {% csrf_token %}
+        Username: <input type="text" name="username"><br>
+        Password: <input type="text" name="password"><br>
+        Email: <input type="text" name="email"><br>
+        First name: <input type="text" name="firstname"><br>
+        Last name: <input type="text" name="lastname"><br>
+        Teacher: <select name="isTeacher">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <button type="submit">Create User</button>
+    </form>
+</body>
+</html>
