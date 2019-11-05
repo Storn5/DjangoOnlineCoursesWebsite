@@ -10,14 +10,8 @@
         Name:<br>
         <input type="text" name="name"><br>
         Teacher:<br>
-        <select name="teacher">
-            {% for user in users %}
-            {% if user.is_teacher == "1" %}
-            <option value={{ user.id }}>{{ user.firstname }} {{user.lastname }}</option>
-            {% endif %}
-            {% endfor %}
-        </select><br>
-        Student IDs separated by comma (max 5):<br>
+        <input type="text" name="teacher"><br>
+        Student usernames separated by comma (max 5):<br>
         <input type="text" name="students"><br>
         <button type="submit">Submit</button>
     </form>

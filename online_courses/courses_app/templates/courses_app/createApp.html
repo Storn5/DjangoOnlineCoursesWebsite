@@ -5,12 +5,12 @@
 </head>
 <body>
     <h1>Create a new Application</h1>
-    <h4>Name: {{ user.firstname }} {{ user.lastname }}</h4>
+    <h4>Name: {{ current_user.first_name }} {{ current_user.last_name }}</h4>
     <form method="POST">
         {% csrf_token %}
         Course:<br>
         <select name="course">
-            {% for course in courses %}
+            {% for course in courses.all %}
             <option value={{ course.id }}>{{ course.name }}</option>
             {% endfor %}
         </select><br>

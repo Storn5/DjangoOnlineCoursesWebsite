@@ -5,16 +5,8 @@
 </head>
 <body>
     <h1>Application</h1>
-    {% for course_id in courses %}
-    {% if course_id.id == app.course %}
-    <h4>Course: {{ course_id.name }}</h4>
-    {% endif %}
-    {% endfor %}
-    {% for user in users %}
-    {% if user.id == app.student %}
-    <h4>Student: {{ user.firstname }} {{ user.lastname }}</h4>
-    {% endif %}
-    {% endfor %}
+    <h4>Course: {{ app.course.name }}</h4>
+    <h4>Student: {{ app.student.first_name }} {{ app.student.last_name }}</h4>
     <h5>Status: {{ app.status }}</h5>
     {% if app.status == "placed" %}
     <form method="POST">
